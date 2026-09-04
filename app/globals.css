@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #faf8f5;
+  --color-paper-card: #f1ece2;
+  --color-ink: #1f2922;
+  --color-ink-soft: #4a5048;
+  --color-sage: #3d6b5c;
+  --color-sage-dark: #2a4d42;
+  --color-clay: #b85c38;
+  --color-clay-dark: #8f4528;
+  --color-grey-warm: #8a8478;
+  --color-line: #ddd5c6;
+}
+
+@theme inline {
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
+
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 2px; }
+
+@keyframes fadeInUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+.msg-enter { animation: fadeInUp 0.22s ease-out; }
+
+@keyframes typingPulse { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
+.typing-dot { animation: typingPulse 1.2s infinite; }
+.typing-dot:nth-child(2) { animation-delay:.15s; }
+.typing-dot:nth-child(3) { animation-delay:.3s; }
