@@ -16,8 +16,8 @@ const COLOR_LINE = "DDD5C6";
 
 const CHAR_COLORS: Record<string, string> = {
   student: "2A4D42",
-  patient: "B85C38",
-  friend: "3D6B5C",
+  mayumi: "B85C38",
+  father: "3D6B5C",
   mother: "6B5B95",
   narrator: "8A8478",
 };
@@ -25,8 +25,8 @@ const CHAR_COLORS: Record<string, string> = {
 function charLabel(sender: string): string {
   const labels: Record<string, string> = {
     student: "Student",
-    patient: "Patient",
-    friend: "Friend",
+    mayumi: "Mayumi (patient)",
+    father: "Father",
     mother: "Mother",
     narrator: "Narrator / Examiner",
   };
@@ -120,10 +120,10 @@ function rubricTable(rubricItems: { criterion: string; met: boolean | string; no
 
 export function buildExportFilename(session: SessionData): string {
   const now = new Date();
-  return `MethPsychosisPBL_${(session.displayName || "student").replace(/\s+/g, "_")}_${now.toISOString().slice(0, 10)}.docx`;
+  return `MayumiPBL_${(session.displayName || "student").replace(/\s+/g, "_")}_${now.toISOString().slice(0, 10)}.docx`;
 }
 
-export async function buildTranscriptDocxBuffer(session: SessionData): Promise<Buffer> {
+export async function buildTranscriptDocxBuffer(session: SessionData): Promise<Uint8Array> {
   const now = new Date();
   const dateStr = now.toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
 
@@ -248,5 +248,5 @@ export async function buildTranscriptDocxBuffer(session: SessionData): Promise<B
   });
 
   const buffer = await Packer.toBuffer(doc);
-  return buffer;
+  return new Uint8Array(buffer);
 }

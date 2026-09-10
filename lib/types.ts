@@ -1,4 +1,4 @@
-export type CharacterKey = "patient" | "friend" | "mother" | "narrator";
+export type CharacterKey = "mayumi" | "father" | "mother" | "narrator";
 export type SenderKey = CharacterKey | "student";
 
 export interface CaseStep {
@@ -66,13 +66,10 @@ export interface SessionData {
   scores: Record<string, StepScore>;
 }
 
-// ── Live classroom mode ──────────────────────────────────────────────────
-// Unlike solo mode (SessionData carries its own private `messages`), the
-// classroom mode's chat is shared per room+step: everyone working on a step
-// sees the same conversation, tagged with who said what, so students can
-// see each other's questions. Each student's own progress/scores stay
-// separate — the tutor dashboard filters the shared chat back down to one
-// student at a time.
+// ── Live classroom / room mode ────────────────────────────────────────────────
+// Chat is shared per room+step: every student working on a step sees the same
+// conversation, tagged with who said what. Each student's progress/scores stay
+// separate; the tutor dashboard filters the shared chat down to one student.
 
 export interface RoomChatMessage {
   id: string;
@@ -98,21 +95,20 @@ export interface RoomStudentProgress {
 }
 
 export const CHARACTER_LABELS: Record<string, string> = {
-  patient: "Patient",
-  friend: "Friend",
-  mother: "Mother (phone)",
+  mayumi: "Mayumi (patient)",
+  father: "Father",
+  mother: "Mother",
   narrator: "Narrator / Examiner",
   student: "You",
 };
 
 export const CHARACTER_COLORS: Record<string, string> = {
-  patient: "#B85C38",
-  friend: "#3D6B5C",
+  mayumi: "#B85C38",
+  father: "#3D6B5C",
   mother: "#6B5B95",
   narrator: "#8A8478",
 };
 
-// Must match the order in case.js
 export const STEPS_ORDER = [
   "initial_information",
   "session1_part1",
@@ -120,5 +116,4 @@ export const STEPS_ORDER = [
   "session1_part3",
   "session2_part1",
   "session2_part2",
-  "session2_part3",
 ];

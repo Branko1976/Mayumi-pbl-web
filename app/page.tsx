@@ -181,9 +181,9 @@ function PasswordGate({ onPass }: { onPass: () => void }) {
     <div className="h-full flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
         <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-grey-warm)] mb-3 text-center">
-          Problem-Based Learning · Emergency &amp; Addiction Psychiatry
+          Problem-Based Learning · Psychiatry
         </p>
-        <h1 className="text-3xl text-center mb-8" style={{ fontFamily: "Georgia, serif" }}>Meth Psychosis PBL</h1>
+        <h1 className="text-3xl text-center mb-8" style={{ fontFamily: "Georgia, serif" }}>A Difficult Child</h1>
         <div className="p-6 rounded-lg border border-[var(--color-line)] bg-[var(--color-paper-card)] space-y-4">
           <label className="block">
             <span className="block text-sm font-medium text-[var(--color-ink-soft)] mb-1.5">Classroom password</span>
@@ -216,10 +216,22 @@ function StartScreen({ meta, existing, onStart, onResume }: {
       <div className="w-full max-w-lg">
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-grey-warm)] mb-3">
-            Problem-Based Learning · Emergency &amp; Addiction Psychiatry
+            Problem-Based Learning · Child &amp; Adolescent Psychiatry
           </p>
           <h1 className="text-5xl mb-3" style={{ fontFamily: "Georgia, serif" }}>{meta.title}</h1>
           <p className="text-[var(--color-ink-soft)] text-lg">{meta.subtitle}</p>
+        </div>
+
+        {/* Classroom mode entry points */}
+        <div className="flex gap-3 justify-center mb-6">
+          <a href="/room"
+            className="px-4 py-2 rounded-md text-sm font-medium border border-[var(--color-sage)] text-[var(--color-sage)] hover:bg-[var(--color-sage)] hover:text-white transition-colors">
+            Join classroom session
+          </a>
+          <a href="/tutor"
+            className="px-4 py-2 rounded-md text-sm font-medium border border-[var(--color-clay)] text-[var(--color-clay)] hover:bg-[var(--color-clay)] hover:text-white transition-colors">
+            Tutor dashboard
+          </a>
         </div>
 
         {existing && !confirmRestart && (
@@ -395,7 +407,7 @@ function InterviewScreen({ session, setSession, steps, languages, onRestart }: {
       <div className="max-w-md text-center">
         <h1 className="text-3xl mb-3" style={{ fontFamily: "Georgia, serif" }}>Case complete</h1>
         <p className="text-[var(--color-ink-soft)] mb-6">
-          You&rsquo;ve worked through every step of the case. Download your transcript and
+          You&rsquo;ve worked through every step of Mayumi&rsquo;s case. Download your transcript and
           AI-suggested scores to submit to your tutor.
         </p>
         <div className="flex flex-col gap-3 items-center">
@@ -420,7 +432,7 @@ function InterviewScreen({ session, setSession, steps, languages, onRestart }: {
         style={{ background: "var(--color-paper)" }}>
         <div className="px-4 pt-5 pb-3 shrink-0">
           <p className="text-[10px] uppercase tracking-widest text-[var(--color-grey-warm)] mb-1">PBL · Psychiatry</p>
-          <h1 className="text-lg leading-snug" style={{ fontFamily: "Georgia, serif" }}>Meth Psychosis PBL</h1>
+          <h1 className="text-lg leading-snug" style={{ fontFamily: "Georgia, serif" }}>A Difficult Child</h1>
         </div>
 
         {/* Step rail */}

@@ -196,7 +196,7 @@ export default function RoomPage({ params }: { params: Promise<{ code: string }>
           <p className="text-xs uppercase tracking-[0.16em] mb-2" style={{ color: "var(--color-grey-warm)" }}>
             Classroom session {code}
           </p>
-          <h1 className="text-2xl mb-1" style={{ fontFamily: "Georgia, serif" }}>{meta?.title || "Meth Psychosis PBL"}</h1>
+          <h1 className="text-2xl mb-1" style={{ fontFamily: "Georgia, serif" }}>{meta?.title || "Mayumi PBL"}</h1>
           <p className="text-sm mb-6" style={{ color: "var(--color-grey-warm)" }}>{meta?.subtitle}</p>
 
           <label className="block text-xs mb-1" style={{ color: "var(--color-grey-warm)" }}>Your name</label>

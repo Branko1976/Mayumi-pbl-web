@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import PasswordGate from "@/components/PasswordGate";
+import { saveTutorPassword, getTutorPassword } from "@/lib/client";
 import {
-  saveTutorPassword,
-  getTutorPassword,
   apiTutorCreateRoom,
   apiTutorGetState,
   apiTutorGetStudentChat,

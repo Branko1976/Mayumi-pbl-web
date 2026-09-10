@@ -5,23 +5,12 @@
 // student's own progress/scores stay separate. A local identity cache (per
 // room+studentId) lets a page refresh resume immediately.
 
-import { getPassword } from "./client";
+import { getPassword, saveTutorPassword, getTutorPassword } from "./client";
 import type { RoomStudentProgress, RoomChatMessage, AiScoreResult } from "./types";
 
 function classroomHeaders(): Record<string, string> {
   const pwd = getPassword();
   return pwd ? { "x-classroom-password": pwd } : {};
-}
-
-// ── Tutor password (separate from the classroom password) ──────────────────
-
-const TUTOR_PWD_KEY = "meth_pbl_tutor_pwd";
-
-export function saveTutorPassword(pwd: string) {
-  sessionStorage.setItem(TUTOR_PWD_KEY, pwd);
-}
-export function getTutorPassword(): string {
-  return sessionStorage.getItem(TUTOR_PWD_KEY) || "";
 }
 function tutorHeaders(): Record<string, string> {
   const pwd = getTutorPassword();
@@ -31,7 +20,7 @@ function tutorHeaders(): Record<string, string> {
 // ── Local resume cache (per room+student) ───────────────────────────────────
 
 function localKey(code: string) {
-  return `meth_pbl_room_${code.toUpperCase()}_student`;
+  return `mayumi_pbl_room_${code.toUpperCase()}_student`;
 }
 export function saveLocalRoomIdentity(code: string, studentId: string, displayName: string) {
   localStorage.setItem(localKey(code), JSON.stringify({ studentId, displayName }));

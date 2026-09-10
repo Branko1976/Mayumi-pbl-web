@@ -1,12 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { checkAuth } from "@/lib/auth";
+import { NextResponse } from "next/server";
 import { CASE_META, STEPS } from "@/data/case.js";
 import { LANGUAGES } from "@/data/languages.js";
 
-export async function GET(req: NextRequest) {
-  const authErr = checkAuth(req);
-  if (authErr) return authErr;
-
+export async function GET() {
   return NextResponse.json({
     meta: CASE_META,
     steps: (STEPS as { key: string; order: number; label: string; settingNote: string; availableCharacters: string[] }[]).map((s) => ({
