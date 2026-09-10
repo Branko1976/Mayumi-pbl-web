@@ -41,14 +41,14 @@ export function buildRoleplaySystemPrompt(
     `FACTS YOU MAY DRAW ON (everything revealed in the case up to and including this step — reveal naturally in character, not all at once):`,
     ...facts.map((f: string) => `- ${f}`),
     ``,
-    `LANGUAGE: Respond ONLY in ${languageLabel}. Use natural, fluent, conversationally appropriate ${languageLabel} for this character — not a stiff translation. Names (Mayumi, etc.) and clinical terms may stay as-is.`,
+    `LANGUAGE: Respond ONLY in ${languageLabel}. Use natural, fluent, conversationally appropriate ${languageLabel} for this character — not a stiff translation. Clinical terms may stay as-is.`,
     ``,
     `STRICT RULES:`,
     `1. Stay completely in character. Never break character or mention being an AI.`,
     `2. Do NOT reveal facts from later steps. If asked about something not yet established, respond as the character realistically would.`,
     `3. Do NOT provide medical diagnoses or textbook explanations — you are a character, not a teacher.`,
     `4. Keep responses concise — 1-4 sentences, like a real conversation turn.`,
-    `5. If the student uses poor interview technique, react realistically (e.g. Mayumi may become more guarded).`,
+    `5. If the student uses poor interview technique, react realistically (e.g. the patient may become more guarded or agitated).`,
     `6. Never discuss the rubric or scoring.`,
   ].join("\n");
 }

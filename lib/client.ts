@@ -8,7 +8,7 @@ import { STEPS_ORDER } from "./types";
 
 // ── Password / auth ───────────────────────────────────────────────────────────
 
-const PWD_KEY = "mayumi_classroom_pwd";
+const PWD_KEY = "meth_pbl_classroom_pwd";
 
 export function savePassword(pwd: string) {
   sessionStorage.setItem(PWD_KEY, pwd);
@@ -78,7 +78,7 @@ export async function apiExport(session: SessionData): Promise<void> {
   a.href = url;
   const cd = res.headers.get("content-disposition") || "";
   const match = cd.match(/filename="([^"]+)"/);
-  a.download = match ? match[1] : "Mayumi_PBL_transcript.docx";
+  a.download = match ? match[1] : "MethPsychosisPBL_transcript.docx";
   document.body.appendChild(a);
   a.click();
   setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
@@ -86,7 +86,7 @@ export async function apiExport(session: SessionData): Promise<void> {
 
 // ── Session persistence (localStorage) ───────────────────────────────────────
 
-const SESSION_KEY = "mayumi_session";
+const SESSION_KEY = "meth_pbl_session";
 
 export function loadSession(): SessionData | null {
   try {

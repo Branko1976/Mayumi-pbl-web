@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mayumi PBL — Simulated Clinical Interview",
-  description: "A PBL clinical-interview simulator: A Difficult Child (Mayumi)",
+  title: "Meth Psychosis PBL — Simulated Clinical Interview",
+  description: "A PBL clinical-interview simulator: Acute Agitation in a Postpartum Woman (methamphetamine-induced psychosis)",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
